@@ -1,0 +1,20 @@
+{% extends "restaurant_manage/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Order Details</title>
+{% endblock %}
+
+{% block content %}
+    <h2>Order #{{ order.id }} Details</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Order</button>
+    </form>
+    <form method="post" action="{% url 'order-detail' order.id %}" style="margin-top: 20px;">
+        {% csrf_token %}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete Order</button>
+    </form>
+{% endblock %}

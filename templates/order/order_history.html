@@ -1,0 +1,18 @@
+{% extends "restaurant_manage/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Restaurant Management | Order</title>
+{% endblock %}
+
+{% block content %}
+    <h2>Orders</h2>
+    <ul>
+        {% for order in orders %}
+            <li>Order #{{ order.id }} by {{ order.customer_id }} - Total: ${{ order.total_price }}
+            <a href="{% url 'order-detail' order.id %}" class="align-right">Order Details</a></li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{% url 'print_order_history' %}" class="btn">Print Order History</a>
+{% endblock %}

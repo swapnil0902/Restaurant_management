@@ -1,0 +1,116 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 20px;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Align items vertically in the center */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px; /* Increased padding for better clickability */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+/* Page content styles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    max-width: 600px; /* Adjusted max-width for wider form */
+    margin: 0 auto;
+    background-color: #fff; /* White background for forms */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for forms */
+}
+
+form label {
+    display: inline-block; /* Ensure labels are on the same line */
+    width: 30%; /* Adjust width as needed for your layout */
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form select,
+form textarea {
+    width: 65%; /* Adjust width to leave space for labels */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding-bottom: 10px; /* Bottom padding after each form field */
+}
+
+form small {
+    display: block;
+    margin-top: 5px; /* Add margin space above helper text */
+    font-size: 12px; /* Optionally adjust font size */
+    color: #666; /* Optionally adjust color */
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Space between buttons */
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.success-message {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50; /* Green background for success message */
+    color: white;
+    border-radius: 5px;
+}

@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View or Write</title>
+    <link rel="stylesheet" href="{% static 'restaurant_manage/view-or-write_styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'logout' %}">Logout And go back home</a></li>
+        </ul>
+    </nav>
+    <h1>Read Or write ?</h1>
+    <ul>
+        <li><a href="/api/">Api</a></li>
+        <li><a href="{% url 'create-menu-item' %}">Write</a></li>
+        <li><a href="{% url 'menu-view' %}">Read</a></li>
+    </ul>
+</body>
+</html>

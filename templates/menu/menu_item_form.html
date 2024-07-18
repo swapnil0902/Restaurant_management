@@ -1,0 +1,39 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Menu Item</title>
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+    </script>
+    <link rel="stylesheet" href="{% static 'forms/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'create-menu-item' %}">Write Menu Items</a></li>
+            <li><a href="{% url 'create-customer' %}">Write Customers</a></li>
+            <li><a href="{% url 'create-order' %}">Write Orders</a></li>
+            <li><a href="{% url 'view-or-write' %}">View or Write</a></li>
+            <li><a href="{% url 'logout' %}">Logout And go back home</a></li>
+
+        </ul>
+    </nav>
+    <h2>Create Menu Item</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" name="action" value="save">Save</button>
+        <button type="submit" name="action" value="save_and_add">Save and add another</button>
+    </form>
+    {% if alert %}
+    <script>
+        showAlert("{{ alert }}");
+    </script>
+    {% endif %}
+</body>
+</html>

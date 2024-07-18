@@ -1,0 +1,17 @@
+{% extends "restaurant_manage/base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Restaurant Management | Customer</title>
+{% endblock %}
+
+{% block content %}
+    <h2>Customer</h2>
+    <ul>
+        {% for customer in customers %}
+            <li>{{ customer.name }} from {{ customer.state }}, {{ customer.country }}
+                <a href="{% url 'customer-detail' customer.id %}" class="align-right">Customer Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
