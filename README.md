@@ -4,7 +4,7 @@ This project is a Restaurant Management System built with Django. It provides fu
 ## Features
 
 - User authentication (Sign up, Log in, Log out)
-- Role-based access control (Waiter, Viewer, Manager, Staff)
+- Role-based access control (Customer, Restaurant Owner, Manager)
 - Menu management (Add, Update, Delete menu items)
 - Order management (Create, View, Update, Delete orders)
 - Customer management (Add, View, Update customer details)
@@ -87,11 +87,13 @@ restaurant-management-system/
 │   ├── management/
 │   │    └── commands/
 │   │         ├── __init__.py
+│   │         ├── show_user_fields.py
 │   │         └── create_user_groups.py
 │   ├── migrations/
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── apps.py
+│   ├── context_processor.py
 │   ├── forms.py
 │   ├── models.py
 │   ├── serializers.py
@@ -143,12 +145,16 @@ restaurant-management-system/
 │   │    └── styles.css
 │   ├── forms/
 │   │    └── styles.css
+│   ├── restaurant_manage/
+│   │    ├── list_styles.css
+│   │    ├── styles.css
+│   │    └── view-or-write_styles.css
 │   └── restaurant_manage/
-│        ├── list_styles.css
-│        ├── styles.css
-│        └── view-or-write_styles.css
+│        ├── onepage_restaurant.jpg
+│        └── pizza.jpg
 ├── templates/
 │   ├── account/
+│   │    ├── group_selection.html
 │   │    ├── login.html
 │   │    └── signup.html
 │   ├── customer/
@@ -156,15 +162,18 @@ restaurant-management-system/
 │   │    ├── customer_form.html
 │   │    └── success.html
 │   ├── menu/
+│   │    ├── create_or_update_restaurant.html
 │   │    ├── menu_item_detail.html
 │   │    ├── menu_item_form.html
 │   │    └── menu_items.html
 │   ├── order/
+│   │    ├── select_restaurant.html
 │   │    ├── order_detail.html
 │   │    ├── order_form.html
 │   │    └── order_history.html
 │   └── restaurant_manage/
-│        ├── base.html
+│   │    ├── base_form.html
+│        ├── base_list.html
 │        ├── index.html
 │        └── view_or_write.html
 ├── manage.py
