@@ -9,13 +9,13 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #F8EDE3;
     padding: 20px;
 }
 
 /* Navigation styles */
 nav {
-    background-color: #333;
+    background-color: #543310;
     color: #fff;
     padding: 10px 20px;
     margin-bottom: 20px;
@@ -51,7 +51,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #555; /* Darker background on hover */
+    background-color: #FED8B1; /* Darker background on hover */
 }
 
 /* Page content styles */

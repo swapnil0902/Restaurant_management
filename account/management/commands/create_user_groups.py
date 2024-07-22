@@ -7,9 +7,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         groups_permissions = {
-            'Customer Service': ['view_customer', 'change_customer', 'add_customer', 'delete_customer', 'view_menuitem', 'view_order'],
-            'Chef': ['view_menuitem', 'change_menuitem', 'add_menuitem', 'delete_menuitem', 'view_customer', 'view_order'],
-            'Waiter': ['view_order', 'change_order', 'add_order', 'delete_order', 'view_menuitem', 'view_customer'],
+            'Customer ': ['view_customer', 'change_customer', 'add_customer', 'delete_customer', 'view_menuitem', 'view_order', 'change_order', 'add_order', 'delete_order'],
+            'Restaurant Owner': ['view_menuitem', 'change_menuitem', 'add_menuitem', 'delete_menuitem', 'view_customer', 'view_order'],
             'Manager': ['view_customer', 'change_customer', 'add_customer', 'delete_customer', 'view_menuitem', 'change_menuitem', 'add_menuitem', 'delete_menuitem', 'view_order', 'change_order', 'add_order', 'delete_order'],
         }
 

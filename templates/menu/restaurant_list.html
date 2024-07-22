@@ -1,0 +1,16 @@
+{% extends "restaurant_manage/base_list.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Restaurants</title>
+{% endblock %}
+
+{% block content %}
+    <h1>Restaurants</h1>
+    <ul>
+        {% for restaurant in restaurants %}
+            <li><a href="{% url 'restaurant-menu-view' restaurant.id %}" class = "btn">{{ restaurant.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

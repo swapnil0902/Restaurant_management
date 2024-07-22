@@ -1,4 +1,4 @@
-{% extends "restaurant_manage/base.html" %}
+{% extends "restaurant_manage/base_list.html" %}
 {% load static %}
 
 {% block title %}
@@ -12,10 +12,19 @@
         {{ form.as_p }}
         <button type="submit">Update Customer</button>
     </form>
+
+    {% if is_manager %}
     <form method="post" action="{% url 'customer-detail' customer.id %}" style="margin-top: 20px;">
         {% csrf_token %}
+        
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete Customer</button>
     </form>
+    {% endif %}
+    {% if is_manager %}
     <a href="{% url 'customer-view' %}" class="align-right">Back to Customers</a>
-{% endblock %}
+    {% endif %}
+
+    {% endblock %}
+
+

@@ -1,4 +1,4 @@
-{% extends "restaurant_manage/base.html" %}
+{% extends "restaurant_manage/base_list.html" %}
 {% load static %}
 
 {% block title %}
@@ -10,7 +10,7 @@
     <ul>
         {% for customer in customers %}
             <li>{{ customer.name }} from {{ customer.state }}, {{ customer.country }}
-                <a href="{% url 'customer-detail' customer.id %}" class="align-right">Customer Details</a>
+                <a href="{% url 'customer-detail' customer.pk %}" class="align-right">Customer Details</a>
             </li>
         {% endfor %}
     </ul>

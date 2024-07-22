@@ -3,13 +3,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import UserCreationForm
 
+
+class GroupSelectionForm(forms.Form):
+    group = forms.ModelChoiceField(queryset=Group.objects.all(), empty_label="Select Group", required=True)
+
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True, help_text='Required. Inform a valid email address.')
-    group = forms.ModelChoiceField(queryset=Group.objects.all(), required=True)
-
+    
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2', 'group')
+        fields = ('username', 'email', 'password1', 'password2')
 
     def save(self, commit=True):
         user = super(SignUpForm, self).save(commit=False)

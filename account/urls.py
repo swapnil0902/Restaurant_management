@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import signup_view, login_view, logout_view
+from .views import signup_view, login_view, logout_view, group_selection_view
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
-    path('signup/', signup_view, name='signup'),
+    path('signup/', group_selection_view, name='group-selection'),
+    path('signup/<str:group_name>/', signup_view, name='signup'),
     path('login/', login_view, name='login'),
     path("logout/", logout_view, name="logout"),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
@@ -30,3 +31,5 @@ urlpatterns = [
 # Appuser10 : hahahauser10
 # Appuser11 : hahahauser11
 # Appuser12 : hahahauser12
+# Appuser13 : hahahauser13
+

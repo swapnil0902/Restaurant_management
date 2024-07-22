@@ -1,4 +1,4 @@
-{% extends "restaurant_manage/base.html" %}
+{% extends "restaurant_manage/base_list.html" %}
 {% load static %}
 
 {% block title %}
@@ -6,15 +6,36 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Order #{{ order.id }} Details</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update Order</button>
-    </form>
-    <form method="post" action="{% url 'order-detail' order.id %}" style="margin-top: 20px;">
-        {% csrf_token %}
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit">Delete Order</button>
-    </form>
+<h1>Order Details</h1>
+
+<!-- Display Order Details -->
+<div>
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Customer Name:</strong> {{ order.customer_name }}</p>
+    <p><strong>Menu Item:</strong> {{ order.menu_item.name }}</p>
+    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+    <p><strong>Rate:</strong> {{ order.rate }}</p>
+    <p><strong>Total Price:</strong> {{ order.total_price }}</p>
+    <p><strong>Order Date:</strong> {{ order.order_date }}</p>
+</div>
+
+<!-- Form to Edit Order -->
+<h2>Edit Order</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+</form>
+
+<!-- Form to Delete Order -->
+<h2>Delete Order</h2>
+<form method="post" action="{% url 'order-detail' pk=order.pk %}">
+    {% csrf_token %}
+    <input type="hidden" name="delete" value="true">
+    <button type="submit">Delete Order</button>
+</form>
+
+<!-- Show Menu Items from the Ordered Restaurant -->
+
+<a href="{% url 'order-view' %}">Back to Orders</a>
 {% endblock %}

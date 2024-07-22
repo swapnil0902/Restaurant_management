@@ -35,7 +35,7 @@ urlpatterns = [
     path('view-or-write/', views.view_or_write, name='view-or-write'),
     path('menu/', include('menu.urls')),
     path('order/', include('order.urls')),
-    path('customer/', include('customer.urls'))
-    # path('api/', include('order.urls')),      
-    # path('api/', include('customer.urls')),   
+    path('customer/', include('customer.urls')),
+    path('read/', views.read_redirect, name='read-redirect'),
+    path('write/', views.write_redirect, name='write-redirect'),
 ]

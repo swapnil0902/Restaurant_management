@@ -1,4 +1,4 @@
-{% extends "restaurant_manage/base.html" %}
+{% extends "restaurant_manage/base_list.html" %}
 {% load static %}
 
 {% block title %}
@@ -7,15 +7,20 @@
 
 {% block content %}
     <h2>Menu Item #{{ menu_item.id }} Details</h2>
+    
+    <!-- Form for updating menu item -->
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Update Menu Item</button>
     </form>
+
+    <!-- Form for deleting menu item -->
     <form method="post" action="{% url 'menu-detail' menu_item.id %}" style="margin-top: 20px;">
         {% csrf_token %}
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete Menu Item</button>
     </form>
+
     <a href="{% url 'menu-view' %}" class="align-right">Back to Menu</a>
 {% endblock %}

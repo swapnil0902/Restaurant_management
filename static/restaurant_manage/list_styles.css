@@ -15,7 +15,7 @@ body {
 
 /* Header styles */
 header {
-    background-color: #333;
+    background-color: #F8EDE3;
     color: #fff;
     padding: 10px 20px;
     margin-bottom: 20px;
@@ -29,9 +29,10 @@ h1 {
 /* Navigation styles */
 
 nav {
-    background-color: #333;
+    background-color: #543310;
     color: #fff;
     padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -46,6 +47,15 @@ nav ul li {
     display: inline-block;
 }
 
+nav ul li.left {
+    /* Adjusted margin-right to separate 'Home' from other links */
+    margin-right: auto; /* Pushes 'Home' link to the left */
+}
+
+nav ul li.right {
+    float: right; /* Align 'Signup' and 'Login' links to the right */
+}
+
 nav ul li a {
     text-decoration: none;
     color: #fff;
@@ -55,8 +65,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #555; /* Darker background on hover */
+    background-color: #FED8B1; /* Darker background on hover */
 }
+
 
 /* Main content styles */
 main {

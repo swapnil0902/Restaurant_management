@@ -1,4 +1,4 @@
-{% extends "restaurant_manage/base.html" %}
+{% extends "restaurant_manage/base_list.html" %}
 {% load static %}
 
 {% block title %}
@@ -9,10 +9,17 @@
     <h2>Orders</h2>
     <ul>
         {% for order in orders %}
-            <li>Order #{{ order.id }} by {{ order.customer_id }} - Total: ${{ order.total_price }}
+            <li>Order #{{ order.id }} by {{ order.customer_name }} - Total: ${{ order.total_price }}
+            {% if is_customer or is_manager %}
             <a href="{% url 'order-detail' order.id %}" class="align-right">Order Details</a></li>
+            {% endif %}
         {% endfor %}
     </ul>
     <br>
+    {% if is_customer %}
+    <a href="{% url 'create-order' %}" class="align-right">Create New order</a>
+    {% endif %}
+    {% if is_manager %}
     <a href="{% url 'print_order_history' %}" class="btn">Print Order History</a>
+    {% endif %}
 {% endblock %}

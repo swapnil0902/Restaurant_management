@@ -1,0 +1,18 @@
+{% extends "restaurant_manage/base_list.html" %}
+{% load static %}
+
+
+{% block title %}
+    <title>Create or Update Restaurant</title>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{% if form.instance.pk %}Update{% else %}Create{% endif %} Restaurant</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+    </form>
+</div>
+{% endblock %}

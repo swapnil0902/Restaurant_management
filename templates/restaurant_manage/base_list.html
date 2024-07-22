@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'restaurant_manage/list_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'forms/list_styles.css' %}">
+    {% block title %}
+        <title>Restaurant Management</title>
+    {% endblock %}
+</head>
+<body>  
+    <header>
+        <nav>
+            <ul>
+                <li>{{ user.username }}</li>
+                {% if is_manager %}
+                    <li>Manager</li>
+                    <li><a href="{% url 'menu-view' %}">Menu Items</a></li>     <!-- doesnt appear for customer -->
+                    <li><a href="{% url 'order-view' %}">Orders</a></li>
+                    <li><a href="{% url 'customer-view' %}">Customer Details</a></li>   <!-- doesnt appear for restaurant owner-->
+                    {% comment %} <li><a href="{% url 'view-or-write' %}">View or Write</a></li> {% endcomment %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% elif is_owner %}
+                    <li>Restaurant Owner</li>
+                    <li><a href="{% url 'menu-view' %}">Menu Items</a></li>     <!-- doesnt appear for customer -->
+                    <li><a href="{% url 'order-view' %}">Orders</a></li>
+                    {% comment %} <li><a href="{% url 'view-or-write' %}">View or Write</a></li> {% endcomment %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% elif is_customer %}
+                    <li>Customer</li>
+                <li><a href="{% url 'order-view' %}">Orders</a></li>
+                <li><a href="{% url 'customer-view' %}">Customer Details</a></li>   <!-- doesnt appear for restaurant owner-->
+                {% comment %} <li><a href="{% url 'view-or-write' %}">View or Write</a></li> {% endcomment %}
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li>Guest</li>
+                    <li><a href="{% url 'menu-view' %}">Menu Items</a></li>     <!-- doesnt appear for customer -->
+                    <li><a href="{% url 'order-view' %}">Orders</a></li>
+                    <li><a href="{% url 'customer-view' %}">Customer Details</a></li>   <!-- doesnt appear for restaurant owner-->
+                    <li><a href="{% url 'view-or-write' %}">View or Write</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <h1>Restaurant Management System</h1>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
